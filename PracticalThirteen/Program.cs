@@ -36,7 +36,7 @@ namespace PracticalThirteen
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=TestOne}/{action=Index}/{id?}");
 
             app.Run();
         }

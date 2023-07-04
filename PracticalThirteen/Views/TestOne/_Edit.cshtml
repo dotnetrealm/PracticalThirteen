@@ -1,0 +1,31 @@
+﻿
+@model PracticalThirteen.Data.Models.Employee;
+<form class="py-3 mb-3" id="EditEmployeeForm">
+    <h4 class="text-decoration-underline mb-4">Edit Employee</h4>
+    <div id="ValidationSummary" class="alert alert-danger d-none" role="alert"></div>
+    <div class="row">
+        <input type="hidden" asp-for="Id" />
+        <div class="col-md-3 pr-5">
+            <label asp-for="Name" class="form-label required"></label>
+            <div class="input-group mb-2">
+                <input type="text" class="form-control" asp-for="Name" placeholder="Enter Name" maxlength="50">
+            </div>
+        </div>
+        <div class="col-md-3 pr-5">
+            <label asp-for="JoiningDate" class="form-label required"></label>
+            <div class="input-group mb-2">
+                <input type="date" class="form-control" asp-for="JoiningDate"required>
+            </div>
+        </div>
+        <div class="col-md-4 pr-5">
+            <label asp-for="Age" class="form-label required"></label>
+            <div class="input-group mb-2">
+                <input type="number" class="form-control" asp-for="Age" />
+            </div>
+        </div>
+        <div class="col-md-2 align-self-end mobile-margin mb-2">
+            <button type="submit" class="btn btn-outline-dark">Update Employee</button>
+        </div>
+    </div>
+</form>
+<hr/>

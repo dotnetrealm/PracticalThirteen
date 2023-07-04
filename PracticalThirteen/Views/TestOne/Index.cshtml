@@ -1,0 +1,27 @@
+﻿@{
+    ViewData["Title"] = "Test-01";
+}
+
+@*page heading*@
+<h1 class="display-4 text-center mb-3">Employees Management</h1>
+
+<div id="TestOneActions" class="row g-3 my-3">
+    <div class="col-auto">
+        <button class="btn btn-outline-dark col-auto" id="CreateEmployee"> Create new employee</button>
+    </div>
+</div>
+
+@*User Create/Edit Form area*@
+<div id="EmployeeForm"></div>
+
+@*employees loads here*@
+<div id="EmployeeData">
+</div>
+
+@*container for toast messages*@
+<div id="ToastDisplay"></div>
+
+
+@section Scripts{
+    <script src="~/js/test-one.js"></script>
+}

@@ -1,0 +1,10 @@
+﻿@using PracticalThirteen.Data.Models;
+@model Employee
+
+<div class=" py-2 my-2">
+    <div class="d-flex alert alert-dark">
+        <h5 class="mx-3"><i class="fa fa-solid fa-user me-2"></i>@Html.DisplayFor(user => Model.Name)</h5>
+        <h5 class="mx-3"><i class="fa fa-solid fa-calendar me-2"></i>@Html.DisplayFor(user => Model.JoiningDate)</h5>
+        <h5 class="mx-3"><i class="fa fa-solid fa-map-marker me-2"></i> @Html.DisplayFor(user => Model.Age)</h5>
+    </div>
+</div>

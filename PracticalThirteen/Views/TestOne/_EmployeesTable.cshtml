@@ -1,0 +1,31 @@
+﻿@using PracticalThirteen.Data.Models;
+@model IEnumerable<Employee>
+
+<table class="table text-center" id="EmployeeTable">
+    <thead>
+        <tr>
+            <th scope="col"><label asp-for="First().Id"></label></th>
+            <th scope="col"><label asp-for="First().Name"></label></th>
+            <th scope="col"><label asp-for="First().JoiningDate"></label></th>
+            <th scope="col"><label asp-for="First().Age"></label></th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody class="text-center">
+        @*displays employee data*@
+        @foreach (var emp in Model)
+        {
+            <tr id="@emp.Id">
+                <th scope="row">@Html.DisplayFor(data => emp.Id)</th>
+                <td>@Html.DisplayFor(data => emp.Name)</td>
+                <td>@Html.DisplayFor(data => emp.JoiningDate)</td>
+                <td>@Html.DisplayFor(data => emp.Age)</td>
+                <td>
+                    <button class="btn btn-sm viewEmployee"><i class="fa fa-eye"></i> View</button>
+                    <button class="btn btn-sm editEmployee"><i class="fa fa-user-pen"></i> Edit</button>
+                    <button class="btn btn-sm deleteEmployee"><i class="fa fa-trash"></i> Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
