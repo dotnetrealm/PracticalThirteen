@@ -47,8 +47,8 @@ namespace PracticalThirteen.Data.Models
         [Column(TypeName = "Date")]
         [Display(Name = "Birth date")]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
-        [Range(typeof(DateOnly), "1800-01-01", "2022-12-31", ErrorMessage = "Please select valid Birthdate (1800/01/01 - 2022/12/31)")]
-        public DateTime DOB { get; set; } = new DateTime(2002, 01, 01).Date;
+        [DataType(DataType.Date)]
+        public DateTime DOB { get; set; } = new DateTime(2002, 09, 02).Date;
 
         [Required]
         [MaxLength(10), MinLength(10)]
@@ -61,9 +61,9 @@ namespace PracticalThirteen.Data.Models
         [Required]
         public decimal Salary { get; set; }
 
-        [ForeignKey("FK_Employees_Designation")]
+        [ForeignKey("Designation")]
         public int DesignationId { get; set; }
 
-        public Designation Designation { get; set; } = null!;
+        public Designation? Designation { get; set; }
     }
 }

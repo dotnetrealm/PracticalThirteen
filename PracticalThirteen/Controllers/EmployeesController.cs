@@ -46,7 +46,7 @@ namespace PracticalThirteen.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Create(EmployeeWithSalary employee)
+        public async Task<ActionResult> Create([Bind(include: new[] { "Id,FirstName,MiddleName,LastName,DOB,MobileNumber,Address,Salary,DesignationId" })] EmployeeWithSalary employee)
         {
             if (ModelState.IsValid)
             {
@@ -55,7 +55,7 @@ namespace PracticalThirteen.Controllers
                 return RedirectToAction("Index");
             }
 
-            ViewBag.DesignationId = new SelectList(_db.Designations, "Id", "Designations", employee.DesignationId);
+            ViewBag.DesignationId = new SelectList(_db.Designations, "Id", "DesignationName", employee.DesignationId);
             return View(employee);
         }
 
@@ -63,10 +63,11 @@ namespace PracticalThirteen.Controllers
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null) return View("Error/404");
-            var employee = await _db.EmployeesWithSalary.Where(e => e.Id == id).Include(e => e.Designation).FirstOrDefaultAsync();
-            if (employee == null) return View("Error/404");
-            ViewBag.DesignationId = new SelectList(_db.Designations, "Id", "Designations", employee.DesignationId);
-            return View(employee);
+            var employee = await _db.EmployeesWithSalary.Include(e => e.Designation).ToListAsync();
+            var emp = employee.ToList().Find(i=>i.Id == id);
+            if (emp == null) return View("Error/404");
+            ViewBag.DesignationId = new SelectList(_db.Designations, "Id", "DesignationName", emp.DesignationId);
+            return View(emp);
         }
 
         [HttpPost]
@@ -79,7 +80,7 @@ namespace PracticalThirteen.Controllers
                 await _db.SaveChangesAsync();
                 return RedirectToAction("Index");
             }
-            ViewBag.DesignationId = new SelectList(_db.Designations, "Id", "Designations", employee.DesignationId);
+            ViewBag.DesignationId = new SelectList(_db.Designations, "Id", "DesignationName", employee.DesignationId);
             return View(employee);
         }
 
@@ -90,12 +91,13 @@ namespace PracticalThirteen.Controllers
             {
                 return View("Error/404");
             }
-            var employees = await _db.EmployeesWithSalary.Where(e => e.Id == id).Include(e => e.Designation).ToListAsync();
-            if (employees == null)
+            var employees = await _db.EmployeesWithSalary.Include(e => e.Designation).ToListAsync();
+            var emp = employees.Find(i => i.Id == id);
+            if (emp == null)
             {
                 return View("Error/404");
             }
-            return View(employees);
+            return View(emp);
         }
 
         [HttpPost]

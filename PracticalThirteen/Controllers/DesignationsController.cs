@@ -17,7 +17,8 @@ namespace PracticalThirteen.Controllers
         [HttpGet]
         public async Task<ActionResult> Index()
         {
-            return View(await _db.Designations.ToListAsync());
+            var data = await _db.Designations.ToListAsync();
+            return View(data);
         }
 
         [HttpGet]

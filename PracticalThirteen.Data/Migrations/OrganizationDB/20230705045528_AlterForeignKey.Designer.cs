@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PracticalThirteen.Data.Contexts;
 
@@ -11,9 +12,11 @@ using PracticalThirteen.Data.Contexts;
 namespace PracticalThirteen.Data.Migrations.OrganizationDB
 {
     [DbContext(typeof(OrganizationDBContext))]
-    partial class OrganizationDBContextModelSnapshot : ModelSnapshot
+    [Migration("20230705045528_AlterForeignKey")]
+    partial class AlterForeignKey
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
