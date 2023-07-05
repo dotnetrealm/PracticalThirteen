@@ -1,0 +1,37 @@
+﻿@model IEnumerable<PracticalThirteen.Data.Models.Designation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p class="my-4">
+    @Html.ActionLink("Create New", "Create", string.Empty, htmlAttributes: new { @class = "btn btn-primary" })
+</p>
+<table class="table table-borderless table-hover rounded-3" style="border-radius:10px !important;">
+    <tr class="text-center table-dark">
+        <th>
+            @Html.DisplayNameFor(model => model.DesignationName)
+        </th>
+        <th>Actions</th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-center">
+        <td>
+            @Html.DisplayFor(modelItem => item.DesignationName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-success" })
+            @Html.ActionLink("Details", "Details", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.Id }, htmlAttributes: new { @class = "btn btn-danger" })
+        </td>
+    </tr>
+}
+    <tr class="text-center">
+        <td colspan="1"><strong>Total Designation : </strong></td>
+        <td colspan="1"><strong>@Model.Count()</strong></td>
+    </tr>
+
+</table>

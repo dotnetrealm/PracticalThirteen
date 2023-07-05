@@ -1,0 +1,36 @@
+﻿@model PracticalThirteen.Data.Models.Designation
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-3">Designation Details</h4>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DesignationName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DesignationName)
+                        </dd>
+
+                    </dl>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <div class="views">
+                        <a asp-controller="Designations" asp-action="Edit" class="btn btn-primary">Edit</a>
+                        
+                    </div>
+                    <div class="stats">
+                        <a asp-controller="Designations" asp-action="Index" class="btn btn-primary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

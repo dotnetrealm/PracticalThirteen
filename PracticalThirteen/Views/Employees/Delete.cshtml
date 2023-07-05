@@ -1,0 +1,100 @@
+﻿@model PracticalThirteen.Data.Models.EmployeeWithSalary
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+                @using (Html.BeginForm())
+                {
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-3">Do you want to delete?</h4>
+
+                        @Html.AntiForgeryToken()
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Id)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Designation.DesignationName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.FirstName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.FirstName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MiddleName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MiddleName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.LastName)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.LastName)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.DOB)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.DOB)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.MobileNumber)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.MobileNumber)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Address)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Address)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Salary)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Salary)
+                            </dd>
+
+                        </dl>
+
+
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                        <div class="views">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </div>
+
+                        <div class="stats">
+                            @Html.ActionLink("Back to List", "Index", String.Empty, new { @class = "btn btn-success" })
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+﻿@using PracticalThirteen.ViewModels;
+@model List<EmployeeWithDesignation>
+@{
+    ViewBag.Title = "Employee with designation using LINQ";
+}
+
+<table class="table rounded-3" style="border-radius:10px !important;">
+    <tr class="text-center table-dark">
+
+        <th>@Html.DisplayNameFor(model => model.First().Designation.DesignationName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.FirstName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.MiddleName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.LastName)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.DOB)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.MobileNumber)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.Address)</th>
+        <th>@Html.DisplayNameFor(model => model.First().Employee.Salary)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <td>@Html.DisplayFor(modelItem => item.Employee.FirstName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.MiddleName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.LastName)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.DOB)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.MobileNumber)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.Address)</td>
+            <td>@Html.DisplayFor(modelItem => item.Employee.Salary)</td>
+            <td>@Html.DisplayFor(modelItem => item.Designation.DesignationName)</td>
+        </tr>
+    }
+
+</table>
+<div class="stats">
+    <a class="btn btn-sm btn-secondary" asp-controller="Employees" asp-action="Index">Back to List</a>
+</div>
+

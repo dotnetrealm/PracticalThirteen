@@ -1,0 +1,91 @@
+﻿@model PracticalThirteen.Data.Models.EmployeeWithSalary
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title text-center mb-3">Employee Details</h4>
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Designation.DesignationName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Designation.DesignationName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.FirstName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.FirstName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MiddleName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MiddleName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.LastName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.LastName)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DOB)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DOB)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.MobileNumber)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.MobileNumber)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Address)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Address)
+                        </dd>
+
+                        <dt>
+                            @Html.DisplayNameFor(model => model.Salary)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.Salary)
+                        </dd>
+
+                    </dl>
+                </div>
+                <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                    <div class="views">
+                        <a asp-controller="Employees" asp-action="Edit" class="btn btn-primary">Edit</a>
+                    </div>
+                    <div class="stats">
+                        <a asp-controller="Employees" asp-action="Index" class="btn btn-primary">Back to List</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

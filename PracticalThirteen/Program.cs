@@ -17,6 +17,11 @@ namespace PracticalThirteen
                 options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            builder.Services.AddDbContext<OrganizationDBContext>(options =>
+            {
+                options.UseSqlServer(builder.Configuration.GetConnectionString("OrganizationConnection"));
+            });
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.

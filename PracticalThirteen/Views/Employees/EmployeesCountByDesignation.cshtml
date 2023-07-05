@@ -1,0 +1,25 @@
+﻿@using PracticalThirteen.ViewModels;
+@model List<EmployeeCountByDesignation>
+@{
+    ViewBag.Title = "Employees count";
+}
+
+<table class="table rounded-3" style="border-radius:10px !important;">
+    <tr class="text-center">
+        <th>@Html.DisplayNameFor(model => model.First().Degination)</th>
+        <th>@Html.DisplayNameFor(model => model.First().EmployeeCount)</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="text-center">
+            <td>@Html.DisplayFor(modelItem => item.Degination)</td>
+            <td>@Html.DisplayFor(modelItem => item.EmployeeCount)</td>
+        </tr>
+    }
+
+</table>
+<div class="stats">
+    <a class="btn btn-sm btn-secondary" asp-controller="Employees" asp-action="Index">Back to List</a>
+</div>
+

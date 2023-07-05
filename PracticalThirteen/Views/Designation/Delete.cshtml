@@ -1,0 +1,45 @@
+﻿@model PracticalThirteen.Data.Models.Designation;
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-12 col-sm-8 col-md-6 col-lg-4">
+            <div class="card">
+                @using (Html.BeginForm())
+                {
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-3">Do you want to delete?</h4>
+
+                        @Html.AntiForgeryToken()
+                    <dl class="dl-horizontal">
+                        <dt>
+                            @Html.DisplayNameFor(model => model.DesignationName)
+                        </dt>
+
+                        <dd>
+                            @Html.DisplayFor(model => model.DesignationName)
+                        </dd>
+
+                    </dl>
+
+
+                    </div>
+                    <div class="card-footer text-muted d-flex justify-content-between bg-transparent border-top-0">
+                        <div class="views">
+                            <input type="submit" value="Delete" class="btn btn-danger" />
+                        </div>
+
+                        <div class="stats">
+                            @Html.ActionLink("Back to List", "Index", String.Empty, new { @class = "btn btn-success" })
+                        </div>
+
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
